@@ -1,0 +1,14 @@
+name: Download Data Function
+description: Download toy data from sklearn datasets
+
+outputs:
+  - {name: Data, type: LocalPath, description: 'Path where data will be stored.'}
+
+implementation:
+  container:
+    image: hendryboyz/kubeflow-poc:dowload_data
+    command:
+      - python
+      - main.py
+      - --data
+      - {outputPath: Data}
